@@ -8,9 +8,14 @@ const {
   createTour,
   updateTour,
   deleteTour,
+  getTourStats,
+  getMonthlyPlan,
 } = require('../controllers/tourController');
 
 router.route('/top-5-cheap').get(aliasTopTours, getAllTours);
+
+router.route('/tour-stats').get(getTourStats);
+router.route('/monthlyPlan/:year').get(getMonthlyPlan);
 
 router.route('/').get(getAllTours).post(createTour);
 
